@@ -3,12 +3,20 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include "deweyengine.h"
+#include <SFML/Audio.hpp>
 
 // Main function
 
 int main(){
 
-	// INitialize engine
+	// Start playing the music!
+
+	sf::Music music;
+	music.openFromFile("music.ogg");
+	music.play();
+
+
+	// Initialize engine
 
 	deweyengine engine;
 	
@@ -19,20 +27,27 @@ int main(){
 	sf::RenderWindow window(sf::VideoMode(800,600),"Dewey Strontium");
 	window.setFramerateLimit(60);
 
+	// Initialize event holding thingy
+
+	sf::Event event;
+
 	// Set up game loop
 
 	while(engine.getUSER_OPTION_FOR_EXIT() == true && window.isOpen()){
 
 		/* EVENTS */
 
-		sf::Event event;
-
 		while(window.pollEvent(event)){
 
-
 			 // "close requested" event: we close the window
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed){
                 window.close();
+			}
+
+			// keyboard requested event
+			if (event.type == sf::Event::KeyPressed){
+				engine.checkKeyPress(&event);
+			}
 
 
 		}
@@ -42,10 +57,9 @@ int main(){
 
 
 		/* RENDERING */
-		
-		window.clear();
 
-		window.display();
+		engine.drawUpdate(&window);
+		
 
 	}
 
