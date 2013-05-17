@@ -17,6 +17,7 @@ class deweyengine
 		void setUSER_OPTION_FOR_EXIT(bool);
 		void drawUpdate(sf::RenderWindow *renderWin);
 		void checkKeyPress(sf::Event *eventpointer);
+		void checkKeyRelease(sf::Event *eventpointer);
 
 	private:
 		bool USER_OPTION_FOR_EXIT;

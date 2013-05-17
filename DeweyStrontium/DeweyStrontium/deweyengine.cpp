@@ -47,3 +47,10 @@ void deweyengine::checkKeyPress(sf::Event *eventpointer){
 
 }
 
+void deweyengine::checkKeyRelease(sf::Event *eventpointer){
+
+	std::cout << "The key released is " << eventpointer -> key.code << " \n";
+
+
+}
+

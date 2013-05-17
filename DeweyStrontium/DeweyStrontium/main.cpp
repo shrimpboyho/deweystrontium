@@ -44,9 +44,14 @@ int main(){
                 window.close();
 			}
 
-			// keyboard requested event
+			// keyboard keypress event
 			if (event.type == sf::Event::KeyPressed){
 				engine.checkKeyPress(&event);
+			}
+
+			// keyboard release event
+			if (event.type == sf::Event::KeyReleased){
+				engine.checkKeyRelease(&event);
 			}
 
 
