@@ -8,7 +8,11 @@ using namespace std;
 
 deweyengine::deweyengine()
 {
-	
+	DATA_BASE.handleVar = 250;
+	DATA_BASE.yBoundMin = 0;
+	DATA_BASE.yBoundMax = 600;
+	DATA_BASE.xBoundMin = 0;
+	DATA_BASE.xBoundMax = 800;
 }
 
 // Deconstructor
@@ -34,35 +38,48 @@ void deweyengine::setUSER_OPTION_FOR_EXIT(bool status){
 
 void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	
-	// Draw the update
+	/*====================Draw the update=========================*/
 	
 	renderWin -> clear();
-
-	if(DATA_BASE.wKey == true){
 			
-						//create a font
-				sf::Font font;
+	//create a font
+	sf::Font font;
 
-				// Load it from a file
-				if (!font.loadFromFile("sansation.ttf"))
-					//find this file in the "pong" example in the SFML examples folder
-				{
-					std::cout << "Error loading font\n" ;
-				}
+	// Load it from a file
+	if (!font.loadFromFile("sansation.ttf"))
+		//find this file in the "pong" example in the SFML examples folder
+	{
+		std::cout << "Error loading font\n" ;
+	}
 			
-				sf::Text atext;
-				atext.setFont(font);
-				atext.setCharacterSize(20);
-				atext.setStyle(sf::Text::Bold);
-				atext.setColor(sf::Color::White);
-				atext.setPosition(0,0);
+	sf::Text atext;
+	atext.setFont(font);
+	atext.setCharacterSize(40);
+	atext.setStyle(sf::Text::Bold);
+	atext.setColor(sf::Color::Green);
+	atext.setPosition(325,250);
 
-				atext.setString("KEY W PRESSED!"); //ss.str() converts the string buffer into a regular string 
+	atext.setString("PONG"); //ss.str() converts the string buffer into a regular string 
 
-				//draw the string
-				renderWin->draw(atext);
-		}
+	//draw the string
 	
+	renderWin->draw(atext);
+				
+	// Set up shapes
+
+	sf::RectangleShape rectPlayer;
+	rectPlayer.setSize(sf::Vector2f(20,100));
+	rectPlayer.setPosition(70,DATA_BASE.handleVar);
+	renderWin -> draw(rectPlayer);
+
+	sf::CircleShape pongBall;
+	pongBall.setRadius(19);
+	pongBall.setFillColor(sf::Color::Red);
+	pongBall.setPosition(200,300);
+	renderWin -> draw(pongBall);
+
+
+	/*======================Finish drawing update======================*/
 
 	renderWin -> display();
 
@@ -78,12 +95,18 @@ void deweyengine::checkKeyPress(sf::Event *eventpointer){
 			
 		case sf::Keyboard::W : DATA_BASE.wKey = true;
 								cout << "W key pressed\n";
+								if(DATA_BASE.handleVar > DATA_BASE.yBoundMin){
+									DATA_BASE.handleVar -= 20;
+								}
 								break;
 		case sf::Keyboard::A : DATA_BASE.aKey = true;
 								cout << "A key pressed\n";
 								break;
 		case sf::Keyboard::S : DATA_BASE.sKey = true;
 								cout << "S key pressed\n";
+								if(DATA_BASE.handleVar < DATA_BASE.yBoundMax - 100){
+									DATA_BASE.handleVar += 20;
+								}
 								break;
 		case sf::Keyboard::D : DATA_BASE.dKey = true;
 								cout << "D key pressed\n";

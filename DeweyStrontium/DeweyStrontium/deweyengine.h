@@ -46,6 +46,20 @@ class deweyengine
 			int mousePosX;
 			int mousePosY;
 
+			// Window boundaries
+
+			int xBoundMin;
+			int yBoundMin;
+			int xBoundMax;
+			int yBoundMax;
+
+			// Var that handles counting pixel position
+
+			int handleVar;
+			int ballPosX;
+			int ballPosY;
+			
+
         } databank;
 
 		databank DATA_BASE;
