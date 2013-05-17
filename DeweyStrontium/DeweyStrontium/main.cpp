@@ -15,7 +15,6 @@ int main(){
 	music.openFromFile("music.ogg");
 	music.play();
 
-
 	// Initialize engine
 
 	deweyengine engine;
@@ -60,6 +59,9 @@ int main(){
 		
 		/* LOGIC */
 
+		// Query the database and act accordingly
+
+		
 
 		/* RENDERING */
 
