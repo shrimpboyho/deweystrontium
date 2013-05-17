@@ -62,6 +62,10 @@ int main(){
 			if(event.type == sf::Event::MouseButtonReleased){
 				engine.checkMouseRelease(&event);
 			}
+
+			if(event.type == sf::Event::MouseMoved){
+				engine.checkMouseMove(&event);
+			}
 		}
 		
 		

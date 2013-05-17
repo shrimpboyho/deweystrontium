@@ -43,8 +43,8 @@ class deweyengine
 
 			bool leftMouseButton;
 			bool rightMouseButton;
-			bool mousePosX;
-			bool mousePosY;
+			int mousePosX;
+			int mousePosY;
 
         } databank;
 

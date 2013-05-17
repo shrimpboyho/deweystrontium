@@ -147,5 +147,9 @@ void deweyengine::checkMouseRelease(sf::Event *eventpointer){
 
 }
 void deweyengine::checkMouseMove(sf::Event *eventpointer){
+	
+	DATA_BASE.mousePosX =  eventpointer -> mouseMove.x;
+	DATA_BASE.mousePosY =  eventpointer -> mouseMove.y;
 
+	cout << "Mouse moved to " << DATA_BASE.mousePosX << "," << DATA_BASE.mousePosY << "\n";
 }
