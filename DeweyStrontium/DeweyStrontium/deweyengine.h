@@ -24,6 +24,9 @@ class deweyengine
 		void drawUpdate(sf::RenderWindow *renderWin);
 		void checkKeyPress(sf::Event *eventpointer);
 		void checkKeyRelease(sf::Event *eventpointer);
+		void checkMousePress(sf::Event *eventpointer);
+		void checkMouseRelease(sf::Event *eventpointer);
+		void checkMouseMove(sf::Event *eventpointer);
 
 		/* USER INTERACTIVITY DATABASE */
 		
@@ -35,6 +38,13 @@ class deweyengine
 			bool aKey;
 			bool sKey;
 			bool dKey;
+
+			// Mouse booleans
+
+			bool leftMouseButton;
+			bool rightMouseButton;
+			bool mousePosX;
+			bool mousePosY;
 
         } databank;
 

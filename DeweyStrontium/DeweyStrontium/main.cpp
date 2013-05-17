@@ -53,7 +53,15 @@ int main(){
 				engine.checkKeyRelease(&event);
 			}
 
+			// mouse click event
+			if(event.type == sf::Event::MouseButtonPressed){
+				engine.checkMousePress(&event);
+			}
 
+			// mouse release event
+			if(event.type == sf::Event::MouseButtonReleased){
+				engine.checkMouseRelease(&event);
+			}
 		}
 		
 		

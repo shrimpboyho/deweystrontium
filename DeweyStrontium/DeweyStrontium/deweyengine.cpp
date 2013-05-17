@@ -4,17 +4,21 @@
 
 using namespace std;
 
+// Constructor
+
 deweyengine::deweyengine()
 {
 	
 }
 
+// Deconstructor
 
 deweyengine::~deweyengine(void)
 {
 
 }
 
+// Exit option settings (getter and setter)
 
 bool deweyengine::getUSER_OPTION_FOR_EXIT(){
 
@@ -25,6 +29,8 @@ bool deweyengine::getUSER_OPTION_FOR_EXIT(){
 void deweyengine::setUSER_OPTION_FOR_EXIT(bool status){
 	USER_OPTION_FOR_EXIT = status;
 }
+
+// Drawing stuff
 
 void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	
@@ -51,7 +57,7 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 				atext.setColor(sf::Color::White);
 				atext.setPosition(0,0);
 
-				atext.setString("KEY A PRESSED!"); //ss.str() converts the string buffer into a regular string 
+				atext.setString("KEY W PRESSED!"); //ss.str() converts the string buffer into a regular string 
 
 				//draw the string
 				renderWin->draw(atext);
@@ -62,6 +68,8 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 
 }
 
+/* KEYBOARD EVENTS */
+
 void deweyengine::checkKeyPress(sf::Event *eventpointer){
 
 	std::cout << "The key pressed is " << eventpointer -> key.code << " \n";
@@ -69,9 +77,17 @@ void deweyengine::checkKeyPress(sf::Event *eventpointer){
 	switch(eventpointer -> key.code){
 			
 		case sf::Keyboard::W : DATA_BASE.wKey = true;
+								cout << "W key pressed\n";
+								break;
 		case sf::Keyboard::A : DATA_BASE.aKey = true;
+								cout << "A key pressed\n";
+								break;
 		case sf::Keyboard::S : DATA_BASE.sKey = true;
+								cout << "S key pressed\n";
+								break;
 		case sf::Keyboard::D : DATA_BASE.dKey = true;
+								cout << "D key pressed\n";
+								break;
 		
 
 	}
@@ -84,11 +100,52 @@ void deweyengine::checkKeyRelease(sf::Event *eventpointer){
 	
 	switch(eventpointer -> key.code){
 			
-		case sf::Keyboard::W : DATA_BASE.wKey = false;
-		case sf::Keyboard::A : DATA_BASE.aKey = false;
-		case sf::Keyboard::S : DATA_BASE.sKey = false;
-		case sf::Keyboard::D : DATA_BASE.dKey = false;
+		case sf::Keyboard::W : DATA_BASE.wKey = false; 
+								cout << "W key released\n";
+								break;
+		case sf::Keyboard::A : DATA_BASE.aKey = false; 
+								cout << "A key released\n";
+								break;
+		case sf::Keyboard::S : DATA_BASE.sKey = false; 
+								cout << "S key released\n";
+								break;
+		case sf::Keyboard::D : DATA_BASE.dKey = false; 
+								cout << "D key released\n";
+								break;
 	}
 
 }
 
+/* MOUSE EVENTS DATABASE */
+
+void deweyengine::checkMousePress(sf::Event *eventpointer){
+
+	switch(eventpointer -> mouseButton.button){
+			
+		case sf::Mouse::Button::Left : DATA_BASE.leftMouseButton = true;
+									    std::cout << "Left mouse button pressed\n";
+										break;
+		case sf::Mouse::Button::Right : DATA_BASE.rightMouseButton = true;
+										std::cout << "Right mouse button pressed\n";
+										break;
+		
+	}
+
+}
+void deweyengine::checkMouseRelease(sf::Event *eventpointer){
+
+	switch(eventpointer -> mouseButton.button){
+			
+		case sf::Mouse::Button::Left : DATA_BASE.leftMouseButton = false;
+										std::cout << "Left mouse button released\n";
+										break;
+		case sf::Mouse::Button::Right : DATA_BASE.rightMouseButton = false;
+										std::cout << "Right mouse button released\n";
+										break;
+		
+	}
+
+}
+void deweyengine::checkMouseMove(sf::Event *eventpointer){
+
+}
