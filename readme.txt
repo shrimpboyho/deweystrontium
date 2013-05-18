@@ -1,7 +1,13 @@
 DeweyStrontium
 ==============
 
-This is a game in development using SFML.
+This is a game engine in development using SFML.
+
+This is the plan:
+
+	1) Build an actual game
+	2) Find a way to make everything more generic and absract so it can be            re-used.
+	3) We have a game engine!
 
 To build you own version, utilize the Visual Studio C++ 2010 IDE.
 
