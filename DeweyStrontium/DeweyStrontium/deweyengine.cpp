@@ -13,6 +13,14 @@ deweyengine::deweyengine()
 	DATA_BASE.yBoundMax = 600;
 	DATA_BASE.xBoundMin = 0;
 	DATA_BASE.xBoundMax = 800;
+	DATA_BASE.ballVelX = 5;
+	DATA_BASE.ballVelY = 3;
+
+	// Set up the pong ball
+
+	pongBall.setRadius(19);
+	pongBall.setFillColor(sf::Color::Red);
+	pongBall.setPosition(200,300);
 }
 
 // Deconstructor
@@ -38,6 +46,35 @@ void deweyengine::setUSER_OPTION_FOR_EXIT(bool status){
 
 void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	
+	/* LOGICAL STUFF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+	
+	// Make sure the paddles don't go out of bounds and allow them to rise/fall based on wasd keys
+	
+	if(DATA_BASE.wKey == true){
+		if(DATA_BASE.handleVar > DATA_BASE.yBoundMin){
+			DATA_BASE.handleVar -= 20;
+		}
+	}
+
+	if(DATA_BASE.sKey == true){
+		if(DATA_BASE.handleVar < DATA_BASE.yBoundMax - 100){
+			DATA_BASE.handleVar += 20;
+		}
+	}
+	
+	// Move the pong ball
+
+	pongBall.move(DATA_BASE.ballVelX, DATA_BASE.ballVelY);
+
+	// Make sure the ball doesn't go out of bounds
+
+	if(pongBall.getPosition().y < 0 || pongBall.getPosition().y > 560){
+		DATA_BASE.ballVelY = -1 * DATA_BASE.ballVelY;
+	}
+
+	if(pongBall.getPosition().x < 0 || pongBall.getPosition().x > 760){
+		DATA_BASE.ballVelX = -1 * DATA_BASE.ballVelX;
+	}
 	/*====================Draw the update=========================*/
 	
 	renderWin -> clear();
@@ -67,15 +104,10 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 				
 	// Set up shapes
 
-	sf::RectangleShape rectPlayer;
 	rectPlayer.setSize(sf::Vector2f(20,100));
 	rectPlayer.setPosition(70,DATA_BASE.handleVar);
 	renderWin -> draw(rectPlayer);
 
-	sf::CircleShape pongBall;
-	pongBall.setRadius(19);
-	pongBall.setFillColor(sf::Color::Red);
-	pongBall.setPosition(200,300);
 	renderWin -> draw(pongBall);
 
 

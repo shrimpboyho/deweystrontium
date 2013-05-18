@@ -16,6 +16,11 @@ class deweyengine
 		
 		deweyengine();
 		~deweyengine(void);
+
+		/* GAME OJBJECTS AND ENTITIES */
+
+		sf::RectangleShape rectPlayer;
+		sf::CircleShape pongBall;
 	
 		/* MEMBER FUNCTIONS*/
 
@@ -56,8 +61,8 @@ class deweyengine
 			// Var that handles counting pixel position
 
 			int handleVar;
-			int ballPosX;
-			int ballPosY;
+			int ballVelX;
+			int ballVelY;
 			
 
         } databank;

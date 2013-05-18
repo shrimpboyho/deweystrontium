@@ -5,10 +5,6 @@
 #include "deweyengine.h"
 #include <SFML/Audio.hpp>
 
-// FUNCTION PROTOTYPES
-
-void gameLogic();
-
 // Initialize engine
 
 deweyengine engine;
@@ -74,11 +70,8 @@ int main(){
 		}
 		
 		
-		/* LOGIC */
 
-		gameLogic();
-
-		/* RENDERING */
+		/* LOGIC and RENDERING */
 
 		engine.drawUpdate(&window);
 		
@@ -90,25 +83,5 @@ int main(){
 
 	// Keep everyone happy
 	return 0;
-}
-
-/* A Seperate function dealing mainly with the game's logic */
-
-void gameLogic(){
-
-	// Make sure the paddles don't go out of bounds and allow them to rise/fall based on wasd keys
-	
-	if(engine.DATA_BASE.wKey == true){
-		if(engine.DATA_BASE.handleVar > engine.DATA_BASE.yBoundMin){
-			engine.DATA_BASE.handleVar -= 20;
-		}
-	}
-
-	if(engine.DATA_BASE.sKey == true){
-		if(engine.DATA_BASE.handleVar < engine.DATA_BASE.yBoundMax - 100){
-			engine.DATA_BASE.handleVar += 20;
-		}
-	}
-
 }
 
