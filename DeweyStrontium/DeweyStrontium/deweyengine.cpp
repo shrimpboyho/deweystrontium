@@ -95,18 +95,12 @@ void deweyengine::checkKeyPress(sf::Event *eventpointer){
 			
 		case sf::Keyboard::W : DATA_BASE.wKey = true;
 								cout << "W key pressed\n";
-								if(DATA_BASE.handleVar > DATA_BASE.yBoundMin){
-									DATA_BASE.handleVar -= 20;
-								}
 								break;
 		case sf::Keyboard::A : DATA_BASE.aKey = true;
 								cout << "A key pressed\n";
 								break;
 		case sf::Keyboard::S : DATA_BASE.sKey = true;
 								cout << "S key pressed\n";
-								if(DATA_BASE.handleVar < DATA_BASE.yBoundMax - 100){
-									DATA_BASE.handleVar += 20;
-								}
 								break;
 		case sf::Keyboard::D : DATA_BASE.dKey = true;
 								cout << "D key pressed\n";
