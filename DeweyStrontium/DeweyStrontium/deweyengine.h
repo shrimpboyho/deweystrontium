@@ -20,6 +20,7 @@ class deweyengine
 		/* GAME OJBJECTS AND ENTITIES */
 
 		sf::RectangleShape rectPlayer;
+		sf::RectangleShape rectOtherPlayer;
 		sf::CircleShape pongBall;
 	
 		/* MEMBER FUNCTIONS*/
@@ -44,6 +45,11 @@ class deweyengine
 			bool sKey;
 			bool dKey;
 
+			bool upKey;
+			bool downKey;
+			bool leftKey;
+			bool rightKey;
+
 			// Mouse booleans
 
 			bool leftMouseButton;
@@ -61,6 +67,7 @@ class deweyengine
 			// Var that handles counting pixel position
 
 			int handleVar;
+			int handleVar2;
 			int ballVelX;
 			int ballVelY;
 			

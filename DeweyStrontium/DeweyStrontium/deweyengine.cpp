@@ -9,12 +9,13 @@ using namespace std;
 deweyengine::deweyengine()
 {
 	DATA_BASE.handleVar = 250;
+	DATA_BASE.handleVar2 = 250;
 	DATA_BASE.yBoundMin = 0;
 	DATA_BASE.yBoundMax = 600;
 	DATA_BASE.xBoundMin = 0;
 	DATA_BASE.xBoundMax = 800;
-	DATA_BASE.ballVelX = 5;
-	DATA_BASE.ballVelY = 3;
+	DATA_BASE.ballVelX = 8;
+	DATA_BASE.ballVelY = 6;
 
 	// Set up the pong ball
 
@@ -61,6 +62,18 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 			DATA_BASE.handleVar += 20;
 		}
 	}
+
+	if(DATA_BASE.upKey == true){
+		if(DATA_BASE.handleVar2 > DATA_BASE.yBoundMin){
+			DATA_BASE.handleVar2 -= 20;
+		}
+	}
+
+	if(DATA_BASE.downKey == true){
+		if(DATA_BASE.handleVar2 < DATA_BASE.yBoundMax - 100){
+			DATA_BASE.handleVar2 += 20;
+		}
+	}
 	
 	// Move the pong ball
 
@@ -74,6 +87,15 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 
 	if(pongBall.getPosition().x < 0 || pongBall.getPosition().x > 760){
 		DATA_BASE.ballVelX = -1 * DATA_BASE.ballVelX;
+	}
+
+	// Check for ball collisions with paddles
+
+	if (pongBall.getGlobalBounds().intersects(rectPlayer.getGlobalBounds()) || pongBall.getGlobalBounds().intersects(rectOtherPlayer.getGlobalBounds()))
+	{
+		// collision!
+		DATA_BASE.ballVelX = -1 * (DATA_BASE.ballVelX + 1);
+		DATA_BASE.ballVelY = -1 * (DATA_BASE.ballVelY + 1);
 	}
 	/*====================Draw the update=========================*/
 	
@@ -108,6 +130,10 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	rectPlayer.setPosition(70,DATA_BASE.handleVar);
 	renderWin -> draw(rectPlayer);
 
+	rectOtherPlayer.setSize(sf::Vector2f(20,100));
+	rectOtherPlayer.setPosition(730,DATA_BASE.handleVar2);
+	renderWin -> draw(rectOtherPlayer);
+
 	renderWin -> draw(pongBall);
 
 
@@ -137,7 +163,18 @@ void deweyengine::checkKeyPress(sf::Event *eventpointer){
 		case sf::Keyboard::D : DATA_BASE.dKey = true;
 								cout << "D key pressed\n";
 								break;
-		
+		case sf::Keyboard::Up : DATA_BASE.upKey = true;
+								cout << "Up key pressed\n";
+								break;
+		case sf::Keyboard::Down : DATA_BASE.downKey = true;
+								cout << "Down key pressed\n";
+								break;
+		case sf::Keyboard::Left : DATA_BASE.leftKey = true;
+								cout << "Left key pressed\n";
+								break;
+		case sf::Keyboard::Right : DATA_BASE.rightKey = true;
+								cout << "Right key pressed\n";
+								break;
 
 	}
 
@@ -160,6 +197,18 @@ void deweyengine::checkKeyRelease(sf::Event *eventpointer){
 								break;
 		case sf::Keyboard::D : DATA_BASE.dKey = false; 
 								cout << "D key released\n";
+								break;
+		case sf::Keyboard::Up : DATA_BASE.upKey = false;
+								cout << "Up key released\n";
+								break;
+		case sf::Keyboard::Down : DATA_BASE.downKey = false;
+								cout << "Down key released\n";
+								break;
+		case sf::Keyboard::Left : DATA_BASE.leftKey = false;
+								cout << "Left key released\n";
+								break;
+		case sf::Keyboard::Right : DATA_BASE.rightKey = false;
+								cout << "Right key released\n";
 								break;
 	}
 
