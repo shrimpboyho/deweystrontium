@@ -4,6 +4,7 @@
 #include <iostream>
 #include "deweyengine.h"
 #include <SFML/Audio.hpp>
+//#include "iconsource.h"
 
 // Initialize engine
 
@@ -12,6 +13,11 @@ deweyengine engine;
 // Main function
 
 int main(){
+
+	// Set up the game mode booleans
+
+	engine.DATA_BASE.menuMode = true;
+	engine.DATA_BASE.gameMode = false;
 
 	// Start playing the music!
 
@@ -26,6 +32,7 @@ int main(){
 
 	sf::RenderWindow window(sf::VideoMode(800,600),"Dewey Strontium");
 	window.setFramerateLimit(60);
+	//window.setIcon(gimp_image.width,  gimp_image.height, gimp_image.pixel_data);
 
 	// Initialize event holding thingy
 
@@ -72,8 +79,18 @@ int main(){
 		
 
 		/* LOGIC and RENDERING */
+		
+		// Check to see if in game mode
+		
+		if(engine.DATA_BASE.gameMode == true){
+			engine.drawUpdate(&window);
+		}
 
-		engine.drawUpdate(&window);
+		// Check to see if in menu mode
+
+		if(engine.DATA_BASE.menuMode == true){
+			engine.drawMenuUpdate(&window);
+		}
 		
 
 	}

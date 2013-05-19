@@ -26,5 +26,8 @@
     <ClInclude Include="deweyengine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="iconsource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

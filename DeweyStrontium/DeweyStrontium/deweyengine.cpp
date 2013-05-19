@@ -22,6 +22,12 @@ deweyengine::deweyengine()
 	pongBall.setRadius(19);
 	pongBall.setFillColor(sf::Color::Red);
 	pongBall.setPosition(200,300);
+
+	// Set up textures
+
+	backgroundimagetexture.loadFromFile("background.jpg");
+	backgroundshape.setTexture(&backgroundimagetexture);
+	backgroundshape.setSize(sf::Vector2f(800,600));
 }
 
 // Deconstructor
@@ -93,13 +99,33 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 
 	if (pongBall.getGlobalBounds().intersects(rectPlayer.getGlobalBounds()) || pongBall.getGlobalBounds().intersects(rectOtherPlayer.getGlobalBounds()))
 	{
-		// collision!
-		DATA_BASE.ballVelX = -1 * (DATA_BASE.ballVelX + 1);
-		DATA_BASE.ballVelY = -1 * (DATA_BASE.ballVelY + 1);
+		//incrementspeed
+
+		if(DATA_BASE.ballVelX > 0){
+			DATA_BASE.ballVelX += 2;
+		}
+		if(DATA_BASE.ballVelX < 0){
+			DATA_BASE.ballVelX -= 2;
+		}
+		
+		if(DATA_BASE.ballVelY > 0){
+			DATA_BASE.ballVelY += 2;
+		}
+		if(DATA_BASE.ballVelY < 0){
+			DATA_BASE.ballVelY -= 2;
+		}
+
+		// collision! flip velocity
+		DATA_BASE.ballVelX = -1 * (DATA_BASE.ballVelX);
+		DATA_BASE.ballVelY = -1 * (DATA_BASE.ballVelY);
 	}
 	/*====================Draw the update=========================*/
 	
 	renderWin -> clear();
+
+	// Set up the backgroudn
+
+	renderWin ->draw(backgroundshape);
 			
 	//create a font
 	sf::Font font;
@@ -250,4 +276,52 @@ void deweyengine::checkMouseMove(sf::Event *eventpointer){
 	DATA_BASE.mousePosY =  eventpointer -> mouseMove.y;
 
 	cout << "Mouse moved to " << DATA_BASE.mousePosX << "," << DATA_BASE.mousePosY << "\n";
+}
+
+
+/*  LOGIC AND RENDERING FOR THE MENU  */
+
+void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
+
+	// Logic
+
+	if(DATA_BASE.leftMouseButton == true){
+		
+		// Enter game mode
+		DATA_BASE.menuMode = false;
+		DATA_BASE.gameMode = true;
+
+	}
+	
+	
+	// Rendering 
+	
+	renderWin -> clear();
+
+
+	//create a font
+	sf::Font font;
+
+	// Load it from a file
+	if (!font.loadFromFile("sansation.ttf"))
+		//find this file in the "pong" example in the SFML examples folder
+	{
+		std::cout << "Error loading font\n" ;
+	}
+
+	sf::Text atext;
+	atext.setFont(font);
+	atext.setCharacterSize(40);
+	atext.setStyle(sf::Text::Bold);
+	atext.setColor(sf::Color::Green);
+	atext.setPosition(325,250);
+
+	atext.setString("CLICK TO PLAY");
+
+	renderWin -> draw(atext);
+
+
+
+	renderWin -> display();
+
 }

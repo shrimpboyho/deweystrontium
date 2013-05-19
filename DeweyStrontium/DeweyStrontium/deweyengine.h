@@ -22,12 +22,15 @@ class deweyengine
 		sf::RectangleShape rectPlayer;
 		sf::RectangleShape rectOtherPlayer;
 		sf::CircleShape pongBall;
+		sf::Texture backgroundimagetexture;
+		sf::RectangleShape backgroundshape;
 	
 		/* MEMBER FUNCTIONS*/
 
 		bool getUSER_OPTION_FOR_EXIT();
 		void setUSER_OPTION_FOR_EXIT(bool);
 		void drawUpdate(sf::RenderWindow *renderWin);
+		void drawMenuUpdate(sf::RenderWindow *renderWin);
 		void checkKeyPress(sf::Event *eventpointer);
 		void checkKeyRelease(sf::Event *eventpointer);
 		void checkMousePress(sf::Event *eventpointer);
@@ -70,6 +73,11 @@ class deweyengine
 			int handleVar2;
 			int ballVelX;
 			int ballVelY;
+
+			// Variables that control the menu flow logic
+
+			bool menuMode;
+			bool gameMode;
 			
 
         } databank;
