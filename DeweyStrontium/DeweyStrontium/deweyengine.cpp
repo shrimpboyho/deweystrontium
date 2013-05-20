@@ -54,6 +54,14 @@ void deweyengine::setUSER_OPTION_FOR_EXIT(bool status){
 void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	
 	/* LOGICAL STUFF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+	// Check to see if the user wants to go back to the menu
+
+	if(DATA_BASE.escKey == true){
+		DATA_BASE.gameMode = false;
+		DATA_BASE.menuMode = true;
+		resetGameState();
+	}
 	
 	// Make sure the paddles don't go out of bounds and allow them to rise/fall based on wasd keys
 	
@@ -180,6 +188,9 @@ void deweyengine::checkKeyPress(sf::Event *eventpointer){
 		case sf::Keyboard::W : DATA_BASE.wKey = true;
 								cout << "W key pressed\n";
 								break;
+		case sf::Keyboard::Escape : DATA_BASE.escKey = true;
+								cout << "Esc key pressed\n";
+								break;
 		case sf::Keyboard::A : DATA_BASE.aKey = true;
 								cout << "A key pressed\n";
 								break;
@@ -211,7 +222,10 @@ void deweyengine::checkKeyRelease(sf::Event *eventpointer){
 	std::cout << "The key released is " << eventpointer -> key.code << " \n";
 	
 	switch(eventpointer -> key.code){
-			
+
+		case sf::Keyboard::Escape : DATA_BASE.escKey = false;
+								cout << "Esc key released\n";
+								break;	
 		case sf::Keyboard::W : DATA_BASE.wKey = false; 
 								cout << "W key released\n";
 								break;
@@ -323,5 +337,32 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 
 
 	renderWin -> display();
+
+}
+
+/* RESETS THE GAME STATE */
+
+void deweyengine::resetGameState(){
+
+	DATA_BASE.handleVar = 250;
+	DATA_BASE.handleVar2 = 250;
+	DATA_BASE.yBoundMin = 0;
+	DATA_BASE.yBoundMax = 600;
+	DATA_BASE.xBoundMin = 0;
+	DATA_BASE.xBoundMax = 800;
+	DATA_BASE.ballVelX = 8;
+	DATA_BASE.ballVelY = 6;
+
+	// Set up the pong ball
+
+	pongBall.setRadius(19);
+	pongBall.setFillColor(sf::Color::Red);
+	pongBall.setPosition(200,300);
+
+	// Set up textures
+
+	backgroundimagetexture.loadFromFile("background.jpg");
+	backgroundshape.setTexture(&backgroundimagetexture);
+	backgroundshape.setSize(sf::Vector2f(800,600));
 
 }

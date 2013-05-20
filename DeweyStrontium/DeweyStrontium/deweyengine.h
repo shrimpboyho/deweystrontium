@@ -36,6 +36,7 @@ class deweyengine
 		void checkMousePress(sf::Event *eventpointer);
 		void checkMouseRelease(sf::Event *eventpointer);
 		void checkMouseMove(sf::Event *eventpointer);
+		void resetGameState();
 
 		/* USER INTERACTIVITY DATABASE */
 		
@@ -52,6 +53,8 @@ class deweyengine
 			bool downKey;
 			bool leftKey;
 			bool rightKey;
+
+			bool escKey;
 
 			// Mouse booleans
 
