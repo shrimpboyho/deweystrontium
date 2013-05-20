@@ -4,7 +4,7 @@
 #include <iostream>
 #include "deweyengine.h"
 #include <SFML/Audio.hpp>
-//#include "iconsource.h"
+#include <sstream>
 
 // Initialize engine
 

@@ -1,6 +1,7 @@
 #include "deweyengine.h"
 #include <iostream>
 #include <SFML\Graphics.hpp>
+#include <sstream>
 
 using namespace std;
 
@@ -16,6 +17,11 @@ deweyengine::deweyengine()
 	DATA_BASE.xBoundMax = 800;
 	DATA_BASE.ballVelX = 8;
 	DATA_BASE.ballVelY = 6;
+
+	// Set up the player scores
+
+	DATA_BASE.p1Score = 0;
+	DATA_BASE.p2Score = 0;
 
 	// Set up the pong ball
 
@@ -59,6 +65,7 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 
 	if(DATA_BASE.escKey == true){
 		DATA_BASE.gameMode = false;
+		DATA_BASE.gameSingleMode = false;
 		DATA_BASE.menuMode = true;
 		resetGameState();
 	}
@@ -99,9 +106,27 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 		DATA_BASE.ballVelY = -1 * DATA_BASE.ballVelY;
 	}
 
-	if(pongBall.getPosition().x < 0 || pongBall.getPosition().x > 760){
-		DATA_BASE.ballVelX = -1 * DATA_BASE.ballVelX;
+	if(pongBall.getPosition().x < 0){
+		
+		// POINT SCORED
+		DATA_BASE.p2Score++;
+
+		// Move the ball back to the center
+
+		pongBall.setPosition(200,300);
+
+
 	}
+
+	 if(pongBall.getPosition().x > 760){
+
+		 // POINT SCORED
+		 DATA_BASE.p1Score++;
+
+		 // Move the ball back to the center
+
+		 pongBall.setPosition(200,300);
+	 }
 
 	// Check for ball collisions with paddles
 
@@ -152,7 +177,26 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	atext.setColor(sf::Color::Green);
 	atext.setPosition(325,250);
 
-	atext.setString("PONG"); //ss.str() converts the string buffer into a regular string 
+	atext.setString("PONG"); 
+
+	sf::Text player1ScoreText;
+	player1ScoreText.setFont(font);
+	player1ScoreText.setCharacterSize(40);
+	player1ScoreText.setStyle(sf::Text::Bold);
+	player1ScoreText.setColor(sf::Color::Green);
+	player1ScoreText.setPosition(100,20);
+	player1ScoreText.setString(IntToString(DATA_BASE.p1Score));
+
+	sf::Text player2ScoreText;
+	player2ScoreText.setFont(font);
+	player2ScoreText.setCharacterSize(40);
+	player2ScoreText.setStyle(sf::Text::Bold);
+	player2ScoreText.setColor(sf::Color::Green);
+	player2ScoreText.setPosition(680,20);
+	player2ScoreText.setString(IntToString(DATA_BASE.p2Score));
+
+	renderWin->draw(player1ScoreText);
+	renderWin->draw(player2ScoreText);
 
 	//draw the string
 	
@@ -303,6 +347,7 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 		
 		// Enter game mode
 		DATA_BASE.menuMode = false;
+		DATA_BASE.gameSingleMode = false;
 		DATA_BASE.gameMode = true;
 
 	}
@@ -365,4 +410,12 @@ void deweyengine::resetGameState(){
 	backgroundshape.setTexture(&backgroundimagetexture);
 	backgroundshape.setSize(sf::Vector2f(800,600));
 
+}
+
+string deweyengine::IntToString (int a)
+{
+    string str;
+    ostringstream temp;
+    temp<<a;
+    return temp.str();
 }

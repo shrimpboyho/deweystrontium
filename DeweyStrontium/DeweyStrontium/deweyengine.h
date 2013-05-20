@@ -3,6 +3,7 @@
 
 #include <SFML\Graphics.hpp>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -37,6 +38,7 @@ class deweyengine
 		void checkMouseRelease(sf::Event *eventpointer);
 		void checkMouseMove(sf::Event *eventpointer);
 		void resetGameState();
+		string IntToString (int a);
 
 		/* USER INTERACTIVITY DATABASE */
 		
@@ -81,6 +83,12 @@ class deweyengine
 
 			bool menuMode;
 			bool gameMode;
+			bool gameSingleMode;
+
+			// Variables which control the point system
+
+			int p1Score;
+			int p2Score;
 			
 
         } databank;
