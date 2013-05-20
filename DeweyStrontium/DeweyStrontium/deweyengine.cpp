@@ -114,6 +114,8 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 		// Move the ball back to the center
 
 		pongBall.setPosition(200,300);
+		DATA_BASE.ballVelX = 8;
+		DATA_BASE.ballVelY = 6;
 
 
 	}
@@ -126,6 +128,8 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 		 // Move the ball back to the center
 
 		 pongBall.setPosition(200,300);
+		 DATA_BASE.ballVelX = 8;
+		 DATA_BASE.ballVelY = 6;
 	 }
 
 	// Check for ball collisions with paddles
@@ -149,8 +153,12 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 		}
 
 		// collision! flip velocity
+
+		
 		DATA_BASE.ballVelX = -1 * (DATA_BASE.ballVelX);
-		DATA_BASE.ballVelY = -1 * (DATA_BASE.ballVelY);
+		DATA_BASE.ballVelY = (DATA_BASE.ballVelY);
+
+
 	}
 	/*====================Draw the update=========================*/
 	
