@@ -391,10 +391,11 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 
 	sf::Text playtext;
 	playtext.setColor(sf::Color::White);
+	playtext.setPosition(180,200);
 
-	/*TODO SET UP HOVER EFFECT*/
+	/*SET UP HOVER EFFECT*/
 	
-	if(true){
+	if(DATA_BASE.mousePosY > playtext.getPosition().y && DATA_BASE.mousePosY < playtext.getPosition().y + playtext.getCharacterSize()){
 
 		playtext.setColor(sf::Color::Cyan);
 		
