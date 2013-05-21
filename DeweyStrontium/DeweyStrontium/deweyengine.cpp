@@ -9,6 +9,11 @@ using namespace std;
 
 deweyengine::deweyengine()
 {
+	
+	// Set up develop switches
+
+	DATA_BASE.vertexShader = false;
+	
 	DATA_BASE.handleVar = 250;
 	DATA_BASE.handleVar2 = 250;
 	DATA_BASE.yBoundMin = 0;
@@ -61,6 +66,12 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	
 	/* LOGICAL STUFF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
+	// Find centroids
+
+	DATA_BASE.centroidBall = pongBall.getPosition().y + pongBall.getRadius();
+
+	/* TODO:: Add the centroids of the player rectanges*/
+
 	// Check to see if the user wants to go back to the menu
 
 	if(DATA_BASE.escKey == true){
@@ -70,7 +81,7 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 		resetGameState();
 	}
 	
-	// Make sure the paddles don't go out of bounds and allow them to rise/fall based on wasd keys
+	// Make sure the paddles don't  go out of bounds and allow them to rise/fall based on wasd keys
 	
 	if(DATA_BASE.wKey == true){
 		if(DATA_BASE.handleVar > DATA_BASE.yBoundMin){
@@ -164,10 +175,20 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	
 	renderWin -> clear();
 
-	// Set up the backgroudn
+	// Set up the background
 
 	renderWin ->draw(backgroundshape);
 			
+	// Set up custom cursor
+
+	 
+    sf::Texture textureMouse;
+    textureMouse.loadFromFile("cursor.png");   
+	sf::Sprite spriteCursor;
+	spriteCursor.setTexture(textureMouse);
+	spriteCursor.setPosition(DATA_BASE.mousePosX - 15, DATA_BASE.mousePosY - 10);
+	
+
 	//create a font
 	sf::Font font;
 
@@ -177,6 +198,9 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	{
 		std::cout << "Error loading font\n" ;
 	}
+
+	
+	// Set up center screen text
 			
 	sf::Text atext;
 	atext.setFont(font);
@@ -187,6 +211,8 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 
 	atext.setString("PONG"); 
 
+	// Player one score text
+	
 	sf::Text player1ScoreText;
 	player1ScoreText.setFont(font);
 	player1ScoreText.setCharacterSize(40);
@@ -195,6 +221,8 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	player1ScoreText.setPosition(100,20);
 	player1ScoreText.setString(IntToString(DATA_BASE.p1Score));
 
+	// Player two score text
+	
 	sf::Text player2ScoreText;
 	player2ScoreText.setFont(font);
 	player2ScoreText.setCharacterSize(40);
@@ -222,6 +250,30 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 
 	renderWin -> draw(pongBall);
 
+	// Vertex shader
+
+	if(DATA_BASE.vertexShader == true){
+
+		// Display vertex of complex moving parts
+
+		sf::CircleShape vertex;
+		vertex.setFillColor(sf::Color::Cyan);
+		vertex.setRadius(5);
+		vertex.setPosition(pongBall.getPosition().x,pongBall.getPosition().y + pongBall.getRadius());
+
+		renderWin -> draw(vertex);
+
+		sf::CircleShape vertex2;
+		vertex2.setFillColor(sf::Color::Cyan);
+		vertex2.setRadius(5);
+		vertex2.setPosition(rectPlayer.getPosition().x,rectPlayer.getPosition().y);
+
+		renderWin -> draw(vertex2);
+
+	}
+
+
+	renderWin -> draw(spriteCursor);
 
 	/*======================Finish drawing update======================*/
 
@@ -376,6 +428,15 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 		std::cout << "Error loading font\n" ;
 	}
 
+	// Set up custom cursor
+
+	 
+    sf::Texture textureMouse;
+    textureMouse.loadFromFile("cursor.png");   
+	sf::Sprite spriteCursor;
+	spriteCursor.setTexture(textureMouse);
+	spriteCursor.setPosition(DATA_BASE.mousePosX - 15, DATA_BASE.mousePosY - 10);
+
 	sf::Text atext;
 	atext.setFont(font);
 	atext.setCharacterSize(40);
@@ -387,7 +448,7 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 
 	renderWin -> draw(atext);
 
-
+	renderWin -> draw(spriteCursor);
 
 	renderWin -> display();
 

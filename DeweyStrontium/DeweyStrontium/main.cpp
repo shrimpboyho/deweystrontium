@@ -32,6 +32,7 @@ int main(){
 
 	sf::RenderWindow window(sf::VideoMode(800,600),"Dewey Strontium");
 	window.setFramerateLimit(60);
+	window.setMouseCursorVisible(false);
 	//window.setIcon(gimp_image.width,  gimp_image.height, gimp_image.pixel_data);
 
 	// Initialize event holding thingy

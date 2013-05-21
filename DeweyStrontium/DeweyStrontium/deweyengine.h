@@ -44,6 +44,13 @@ class deweyengine
 		
 		typedef struct{
 
+			// Developer booleans
+
+			bool vertexShader;
+			int centroidRect1;
+			int centoidRect2;
+			int centroidBall;
+			
 			// Key booleans
 
 			bool wKey;
