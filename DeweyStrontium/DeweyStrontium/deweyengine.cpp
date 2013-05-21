@@ -20,8 +20,8 @@ deweyengine::deweyengine()
 	DATA_BASE.yBoundMax = 600;
 	DATA_BASE.xBoundMin = 0;
 	DATA_BASE.xBoundMax = 800;
-	DATA_BASE.ballVelX = 8;
-	DATA_BASE.ballVelY = 6;
+	DATA_BASE.ballVelX = randXVelo();
+	DATA_BASE.ballVelY = randYVelo();
 
 	// Set up the player scores
 
@@ -125,8 +125,8 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 		// Move the ball back to the center
 
 		pongBall.setPosition(200,300);
-		DATA_BASE.ballVelX = 8;
-		DATA_BASE.ballVelY = 6;
+		DATA_BASE.ballVelX = randXVelo();
+		DATA_BASE.ballVelY = randYVelo();
 
 
 	}
@@ -393,6 +393,10 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 	playtext.setColor(sf::Color::White);
 	playtext.setPosition(180,200);
 
+	sf::Text playSingletext;
+	playSingletext.setColor(sf::Color::White);
+	playSingletext.setPosition(180,260);
+
 	/*SET UP HOVER EFFECT*/
 	
 	if(DATA_BASE.mousePosY > playtext.getPosition().y && DATA_BASE.mousePosY < playtext.getPosition().y + playtext.getCharacterSize()){
@@ -405,12 +409,17 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 		
 		// Check to see where clicked
 
+		if(DATA_BASE.mousePosY > playtext.getPosition().y && DATA_BASE.mousePosY < playtext.getPosition().y + playtext.getCharacterSize()){
+
+			// Enter game mode (play multiplayer)
+			DATA_BASE.menuMode = false;
+			DATA_BASE.gameSingleMode = false;
+			DATA_BASE.gameMode = true;
 		
 		
-		// Enter game mode
-		DATA_BASE.menuMode = false;
-		DATA_BASE.gameSingleMode = false;
-		DATA_BASE.gameMode = true;
+		}
+		
+		
 
 	}
 	
@@ -454,9 +463,17 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 
 	playtext.setString("Play Multiplayer");
 
+	playSingletext.setFont(font);
+	playSingletext.setCharacterSize(40);
+	playSingletext.setPosition(180,260);
+
+	playSingletext.setString("Play Singleplayer");
+
 	renderWin -> draw(atext);
 
 	renderWin -> draw(playtext);
+
+	renderWin -> draw(playSingletext);
 
 	renderWin -> draw(spriteCursor);
 
@@ -497,4 +514,38 @@ string deweyengine::IntToString (int a)
     ostringstream temp;
     temp<<a;
     return temp.str();
+}
+
+// The random velocity generating member functions
+
+int deweyengine::randXVelo(){
+
+	int temp = rand() % 11;
+
+	if(temp > 5){
+
+		return -8;
+
+	}else{
+
+		return 8;
+
+	}
+
+}
+
+int deweyengine::randYVelo(){
+
+	int temp = rand() % 11;
+
+	if(temp > 5){
+
+		return -6;
+
+	}else{
+
+		return 6;
+
+	}
+
 }

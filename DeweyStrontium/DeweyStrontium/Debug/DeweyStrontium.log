@@ -1,9 +1,9 @@
-﻿Build started 5/21/2013 10:28:35 AM.
+﻿Build started 5/21/2013 6:41:09 PM.
      1>Project "C:\DeweyStrontium\DeweyStrontium\DeweyStrontium\DeweyStrontium.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\DeweyStrontium.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt deweyengine.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt deweyengine.cpp
          deweyengine.cpp
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(71): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(112): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
@@ -16,15 +16,15 @@
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(356): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(367): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(370): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
-     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(440): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(440): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(449): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(449): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.exe" /NOLOGO "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DeweyStrontium.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.lib" /MACHINE:X86 Debug\deweyengine.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.exe" /NOLOGO "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DeweyStrontium.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.lib" /MACHINE:X86 Debug\deweyengine.obj
          Debug\main.obj
          LINK : C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.exe not found or not built by the last incremental link; performing full link
          DeweyStrontium.vcxproj -> C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.exe
        Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.exe;#1" /manifest Debug\DeweyStrontium.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.exe;#1" /manifest Debug\DeweyStrontium.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\DeweyStrontium.unsuccessfulbuild".
          Touching "Debug\DeweyStrontium.lastbuildstate".
@@ -32,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.85
+Time Elapsed 00:00:01.35

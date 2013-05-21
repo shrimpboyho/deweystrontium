@@ -39,6 +39,8 @@ class deweyengine
 		void checkMouseMove(sf::Event *eventpointer);
 		void resetGameState();
 		string IntToString (int a);
+		int randXVelo();
+		int randYVelo();
 
 		/* USER INTERACTIVITY DATABASE */
 		
