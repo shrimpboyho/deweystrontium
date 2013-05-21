@@ -1,25 +1,23 @@
-﻿Build started 5/20/2013 10:28:57 PM.
+﻿Build started 5/20/2013 11:11:12 PM.
      1>Project "C:\DeweyStrontium\DeweyStrontium\DeweyStrontium\DeweyStrontium.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\DeweyStrontium.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt deweyengine.cpp main.cpp
-         main.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt deweyengine.cpp
          deweyengine.cpp
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(71): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(112): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(112): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(189): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(189): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(244): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(248): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(230): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(234): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(353): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
+     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(356): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(367): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
      1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(370): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
-     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(381): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
-     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(384): warning C4482: nonstandard extension used: enum 'sf::Mouse::Button' used in qualified name
-     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(438): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(438): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Generating Code...
+     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(437): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\deweystrontium\deweystrontium\deweystrontium\deweyengine.cpp(437): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.exe" /NOLOGO "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DeweyStrontium.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\DeweyStrontium\DeweyStrontium\Debug\DeweyStrontium.lib" /MACHINE:X86 Debug\deweyengine.obj
          Debug\main.obj
@@ -34,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.14
+Time Elapsed 00:00:01.33

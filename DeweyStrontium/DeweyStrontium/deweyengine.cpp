@@ -199,18 +199,6 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 		std::cout << "Error loading font\n" ;
 	}
 
-	
-	// Set up center screen text
-			
-	sf::Text atext;
-	atext.setFont(font);
-	atext.setCharacterSize(40);
-	atext.setStyle(sf::Text::Bold);
-	atext.setColor(sf::Color::Green);
-	atext.setPosition(325,250);
-
-	atext.setString("PONG"); 
-
 	// Player one score text
 	
 	sf::Text player1ScoreText;
@@ -231,12 +219,10 @@ void deweyengine::drawUpdate(sf::RenderWindow *renderWin){
 	player2ScoreText.setPosition(680,20);
 	player2ScoreText.setString(IntToString(DATA_BASE.p2Score));
 
+	// draw the strings
+	
 	renderWin->draw(player1ScoreText);
 	renderWin->draw(player2ScoreText);
-
-	//draw the string
-	
-	renderWin->draw(atext);
 				
 	// Set up shapes
 
@@ -403,7 +389,22 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 
 	// Logic
 
+	sf::Text playtext;
+	playtext.setColor(sf::Color::White);
+
+	/*TODO SET UP HOVER EFFECT*/
+	
+	if(true){
+
+		playtext.setColor(sf::Color::Cyan);
+		
+	}
+	
 	if(DATA_BASE.leftMouseButton == true){
+		
+		// Check to see where clicked
+
+		
 		
 		// Enter game mode
 		DATA_BASE.menuMode = false;
@@ -439,14 +440,22 @@ void deweyengine::drawMenuUpdate(sf::RenderWindow *renderWin){
 
 	sf::Text atext;
 	atext.setFont(font);
-	atext.setCharacterSize(40);
-	atext.setStyle(sf::Text::Bold);
-	atext.setColor(sf::Color::Green);
-	atext.setPosition(325,250);
+	atext.setCharacterSize(80);
+	atext.setColor(sf::Color::White);
+	atext.setPosition(180,50);
 
-	atext.setString("CLICK TO PLAY");
+	atext.setString("QuakePong");
+
+	
+	playtext.setFont(font);
+	playtext.setCharacterSize(40);
+	playtext.setPosition(180,200);
+
+	playtext.setString("Play Multiplayer");
 
 	renderWin -> draw(atext);
+
+	renderWin -> draw(playtext);
 
 	renderWin -> draw(spriteCursor);
 
